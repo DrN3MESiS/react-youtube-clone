@@ -2,18 +2,23 @@ import React from 'react';
 import SearchBar from './components/SearchBar/SearchBar';
 import { Container, Row, Col } from 'react-bootstrap';
 import VideoDetail from './components/VideoDetail/VideoDetail';
-import axios from 'axios';
+import yAPI from './apis/youtube-api';
 
 class App extends React.Component {
   state = { gotResults: false };
 
   handleUserInput = async term => {
     console.log(term);
-    const url = 'https://www.googleapis.com/youtube/v3/search?=' + term;
     try {
-      const data = await axios.get(url);
+      const data = await yAPI.get(`/search`, {
+        params: {
+          q: term,
+        },
+      });
+      console.log(data);
       this.setState({ gotResults: true });
     } catch (error) {
+      console.log(error);
       console.log('Error.');
     }
   };
