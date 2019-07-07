@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 
-const VideoFeed = props => {
+const VideoDetail = props => {
   return (
     <React.Fragment>
       <div className="video-feed-div">
@@ -12,4 +12,4 @@ const VideoFeed = props => {
   );
 };
 
-export default VideoFeed;
+export default VideoDetail;
