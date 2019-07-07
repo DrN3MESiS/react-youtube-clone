@@ -14,7 +14,7 @@ class SearchBar extends React.Component {
     this.setState({ text: event.target.value });
   };
 
-  handleSubmit = event => {
+  handleFormSubmit = event => {
     event.preventDefault();
     this.props.onUserSubmit(this.state.text);
   };
@@ -23,11 +23,12 @@ class SearchBar extends React.Component {
     return (
       <React.Fragment>
         <div align="CENTER" className="search-bar-div">
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleFormSubmit}>
             <input
               type="text"
               placeholder="Search..."
               className="search-bar"
+              value={this.state.text}
               onChange={this.handleInput}
             />
           </form>

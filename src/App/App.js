@@ -2,13 +2,20 @@ import React from 'react';
 import SearchBar from './components/SearchBar/SearchBar';
 import { Container, Row, Col } from 'react-bootstrap';
 import VideoDetail from './components/VideoDetail/VideoDetail';
+import axios from 'axios';
 
 class App extends React.Component {
   state = { gotResults: false };
 
-  handleUserInput = term => {
+  handleUserInput = async term => {
     console.log(term);
-    this.setState({ gotResults: true });
+    const url = 'https://www.googleapis.com/youtube/v3/search?=' + term;
+    try {
+      const data = await axios.get(url);
+      this.setState({ gotResults: true });
+    } catch (error) {
+      console.log('Error.');
+    }
   };
 
   render() {
@@ -17,6 +24,7 @@ class App extends React.Component {
         <Container fluid className="justify-content-md-center">
           <Row>
             <Col sm={true}>
+              <h1>YouTube Search Clone</h1>
               <SearchBar onUserSubmit={this.handleUserInput} />
             </Col>
           </Row>
