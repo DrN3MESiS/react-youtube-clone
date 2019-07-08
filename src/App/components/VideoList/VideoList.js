@@ -3,17 +3,20 @@ import VideoItem from '../VideoItem/VideoItem';
 import './style.css';
 
 const VideoList = props => {
-  const vid_list = props.list;
-
-  //const title = item.snippet.title;
-  //const desc = item.snippet.description;
-  //const img  = item.snippet.thumbnails.default.url;
+  const vid_list = props.list.map(element => {
+    return (
+      <VideoItem
+        key={element.id.videoId}
+        title={element.snippet.title}
+        description={element.snippet.publishedAt}
+        img={element.snippet.thumbnails.default.url}
+      />
+    );
+  });
 
   return (
     <React.Fragment>
-      <div className="v1-div">
-        <VideoItem title="test item" description="test description" img="img" />
-      </div>
+      <div className="v1-div">{vid_list}</div>
     </React.Fragment>
   );
 };

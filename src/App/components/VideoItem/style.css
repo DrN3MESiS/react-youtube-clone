@@ -1,11 +1,11 @@
 .item-div {
   padding: 1rem;
   width: 100%;
-  background-color: black;
-  color: white;
+  background-color: rgb(245, 245, 245);
   border-radius: 10px;
+  margin: 0.5rem;
 }
 
 .mini-thumb {
-  width: 75%;
+  width: 100%;
 }
