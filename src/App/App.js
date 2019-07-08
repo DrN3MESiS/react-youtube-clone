@@ -3,9 +3,10 @@ import SearchBar from './components/SearchBar/SearchBar';
 import { Container, Row, Col } from 'react-bootstrap';
 import VideoDetail from './components/VideoDetail/VideoDetail';
 import yAPI from './apis/youtube-api';
+import VideoList from './components/VideoList/VideoList';
 
 class App extends React.Component {
-  state = { gotResults: false };
+  state = { gotResults: false, data: [] };
 
   handleUserInput = async term => {
     console.log(term);
@@ -22,7 +23,7 @@ class App extends React.Component {
       });
 
       console.log(res.data.items);
-      this.setState({ gotResults: true });
+      this.setState({ gotResults: true, data: res.data.items });
     } catch (error) {
       console.log(error);
       console.log('Error.');
@@ -37,16 +38,16 @@ class App extends React.Component {
             <Col sm={true}>
               <h1>YouTube Search Clone</h1>
               <SearchBar onUserSubmit={this.handleUserInput} />
+              <hr />
             </Col>
           </Row>
           {this.state.gotResults ? (
             <Row>
               <Col md={8} sm>
-                video detail
                 <VideoDetail />
               </Col>
               <Col md={4} sm>
-                video recommendations
+                <VideoList list={this.state.data} />
               </Col>
             </Row>
           ) : (
