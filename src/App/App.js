@@ -10,12 +10,18 @@ class App extends React.Component {
   handleUserInput = async term => {
     console.log(term);
     try {
-      const data = await yAPI.get(`/search`, {
+      const KEY = 'AIzaSyDOLFHgilmIENKqppCkd-YJNiIIdm6MOd4';
+
+      const res = await yAPI.get(`/search`, {
         params: {
           q: term,
+          maxResults: 5,
+          part: 'snippet',
+          key: KEY,
         },
       });
-      console.log(data);
+
+      console.log(res.data.items);
       this.setState({ gotResults: true });
     } catch (error) {
       console.log(error);
