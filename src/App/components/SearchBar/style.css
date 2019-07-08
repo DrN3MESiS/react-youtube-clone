@@ -4,5 +4,6 @@
 
 .search-bar {
   padding: 1rem;
-  width: 40vw;
+  width: 100%;
+  border-radius: 10px;
 }

@@ -1,0 +1,14 @@
+.video-feed-div {
+  padding: 1rem;
+  width: 100%;
+}
+
+.video {
+  background-color: black;
+  color: white;
+  width: 100%;
+}
+
+.description {
+  padding: 1rem;
+}
