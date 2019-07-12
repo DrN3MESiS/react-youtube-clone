@@ -36,9 +36,11 @@ class App extends React.Component {
         <Container fluid className="justify-content-md-center">
           <Row>
             <Col sm={true}>
-              <h1>YouTube Search Clone</h1>
-              <SearchBar onUserSubmit={this.handleUserInput} />
-              <hr />
+              <div align="CENTER">
+                <h1>YouTube API Search</h1>
+                <SearchBar onUserSubmit={this.handleUserInput} />
+                <hr />
+              </div>
             </Col>
           </Row>
           {this.state.gotResults ? (
