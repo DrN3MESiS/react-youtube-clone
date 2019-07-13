@@ -7,9 +7,8 @@ const VideoList = props => {
     return (
       <VideoItem
         key={element.id.videoId}
-        title={element.snippet.title}
-        description={element.snippet.publishedAt}
-        img={element.snippet.thumbnails.default.url}
+        video={element}
+        onVideoSelect={props.onVideoSelect}
       />
     );
   });

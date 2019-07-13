@@ -6,7 +6,7 @@ import yAPI from './apis/youtube-api';
 import VideoList from './components/VideoList/VideoList';
 
 class App extends React.Component {
-  state = { gotResults: false, data: [] };
+  state = { gotResults: false, data: [], selectedVideo: null };
 
   handleUserInput = async term => {
     console.log(term);
@@ -22,12 +22,16 @@ class App extends React.Component {
         },
       });
 
-      console.log(res.data.items);
       this.setState({ gotResults: true, data: res.data.items });
     } catch (error) {
       console.log(error);
       console.log('Error.');
     }
+  };
+
+  handleVideoSelect = async item => {
+    console.log(item);
+    this.setState({ selectedVideo: item });
   };
 
   render() {
@@ -49,7 +53,10 @@ class App extends React.Component {
                 <VideoDetail />
               </Col>
               <Col md={4} sm>
-                <VideoList list={this.state.data} />
+                <VideoList
+                  list={this.state.data}
+                  onVideoSelect={this.handleVideoSelect}
+                />
               </Col>
             </Row>
           ) : (

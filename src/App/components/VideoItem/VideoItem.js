@@ -3,11 +3,17 @@ import './style.css';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const VideoItem = props => {
-  const title = props.title;
-  const img = props.img;
+  const element = props.video;
+  const title = element.snippet.title;
+  const img = element.snippet.thumbnails.default.url;
   return (
     <React.Fragment>
-      <div className="item-div">
+      <div
+        className="item-div"
+        onClick={() => {
+          props.onVideoSelect(element);
+        }}
+      >
         <Container>
           <Row>
             <Col sm={4}>
