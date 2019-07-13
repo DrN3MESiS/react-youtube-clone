@@ -4,7 +4,6 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 const VideoItem = props => {
   const title = props.title;
-  const description = props.description;
   const img = props.img;
   return (
     <React.Fragment>
@@ -16,7 +15,6 @@ const VideoItem = props => {
             </Col>
             <Col sm={8}>
               <h5>{title}</h5>
-              <label>{description}</label>
             </Col>
           </Row>
         </Container>

@@ -4,6 +4,7 @@
   background-color: rgb(245, 245, 245);
   border-radius: 10px;
   margin: 0.5rem;
+  cursor: pointer;
 }
 
 .mini-thumb {
