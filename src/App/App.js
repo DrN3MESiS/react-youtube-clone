@@ -22,7 +22,11 @@ class App extends React.Component {
         },
       });
 
-      this.setState({ gotResults: true, data: res.data.items });
+      this.setState({
+        gotResults: true,
+        data: res.data.items,
+        selectedVideo: null,
+      });
     } catch (error) {
       console.log(error);
       console.log('Error.');
