@@ -50,7 +50,9 @@ class App extends React.Component {
           {this.state.gotResults ? (
             <Row>
               <Col md={8} sm>
-                <VideoDetail />
+                {this.state.selectedVideo != null && (
+                  <VideoDetail selectedVideo={this.state.selectedVideo} />
+                )}
               </Col>
               <Col md={4} sm>
                 <VideoList

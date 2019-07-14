@@ -1,14 +1,16 @@
 import React from 'react';
-import './style.css';
+import { ListGroup } from 'react-bootstrap';
 
-const VideoDetail = props => {
-  const desc = props.desc;
+const VideoDetail = ({ selectedVideo }) => {
   return (
     <React.Fragment>
-      <div className="video-feed-div">
-        <div className="video">video</div>
-        <div className="description">{desc}</div>
-      </div>
+      <ListGroup>
+        <ListGroup.Item>Video Player</ListGroup.Item>
+        <ListGroup.Item>
+          <h4>{selectedVideo.snippet.title}</h4>
+          <h6>{selectedVideo.snippet.description}</h6>
+        </ListGroup.Item>
+      </ListGroup>
     </React.Fragment>
   );
 };
