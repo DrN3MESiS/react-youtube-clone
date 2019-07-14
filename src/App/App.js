@@ -25,7 +25,7 @@ class App extends React.Component {
       this.setState({
         gotResults: true,
         data: res.data.items,
-        selectedVideo: null,
+        selectedVideo: res.data.items[0],
       });
     } catch (error) {
       console.log(error);
