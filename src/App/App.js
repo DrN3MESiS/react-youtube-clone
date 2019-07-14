@@ -8,6 +8,10 @@ import VideoList from './components/VideoList/VideoList';
 class App extends React.Component {
   state = { gotResults: false, data: [], selectedVideo: null };
 
+  componentDidMount() {
+    this.handleUserInput('avicci music');
+  }
+
   handleUserInput = async term => {
     console.log(term);
     try {
